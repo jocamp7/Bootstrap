@@ -1,11 +1,7 @@
 
 /* 
-Implementa una validación para el correo.
-
-Implementa una validación que comprueba que la contraseña 1 es la misma que la contraseña 2.
-Implementa una validación de contraseña.
-
 Por cada validación que no se cumpla muestra un mensaje durante 3 segundos y que después desaparezca.
+
 Al terminar de rellenar los datos del formulario correctamente muestra un mensaje durante 3 segundos que muestre 
 “Usuario creado correctamente” y redirige a la vista Usuarios.
 
@@ -29,14 +25,42 @@ let i=0;
             
 let array=[];
 
+let patronCorreo= /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/
+
+//Checks that a password has a minimum of 6 characters, at least 1 uppercase letter, 1 lowercase letter, and 1 number with no spaces.
+
+let patronContraseña= /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/
+
 
 function sendInfo (event) {
 
     event.preventDefault();
 
+    let resultadoCorreo = patronCorreo.test(userEmail.value);
+
+    let resultadoContraseña = patronContraseña.test(userPassword.value);
+
+    //console.log(resultadoCorreo);
+
     if (userName.value === '' || userEmail.value === '' || userPassword.value=== ''|| userPassword2.value==='') {
+
         console.log('Por favor, rellena todos los campos, luego aqui ira el mensaje fancy');
-    } 
+
+    } else if(resultadoCorreo===false){
+
+        console.log('Por favor, introduzca un email válido, luego aqui ira el mensaje fancy');
+
+    }else if(userPassword.value !== userPassword2.value){
+
+        console.log('Por favor, compruebe que introduce la contraseña bien las 2 veces, luego aqui ira el mensaje fancy');
+
+    } else if(resultadoContraseña===false){
+
+        console.log('Su contraseña no puede tener espacios, tiene que tener mínimo 6 caracteres, al menos una mayúscula, al menos una minúscula, y al menos un número');
+    }
+    else{
+        console.log('todo bien');
+    }
       
      
     //     localStorage.setItem('usuario'+i,JSON.stringify({
