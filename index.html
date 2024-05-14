@@ -22,16 +22,19 @@
 
             <div  id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="#">Crear Usuario</a> <!--que lleve al form-->
-                    <a class="nav-link" href="#">Usuarios</a> <!--lleva al card de los usuarios guardados en localstorage-->
+                    <a class="nav-link" href="#myForm">Crear Usuario</a> <!--que lleve al form-->
+                    <a class="nav-link" href="#cards">Usuarios</a> <!--lleva al card de los usuarios guardados en localstorage-->
                 </div>
             </div>
 
         </div>
     </nav>
 
+    <!-- aqui iran las alertas -->
+    <div id="alerta">  </div>
+
     
-        <form class="margenes">  
+        <form class="margenes" id="myForm">  
             <div class="mb-3">
                 <label for="inputName" class="form-label">Nombre</label>
                 <input type="text" class="form-control largo" id="inputName">
@@ -45,7 +48,7 @@
                 <input type="password" class="form-control largo" id="inputPassword">
             </div>
             <div class="mb-3">
-                <label for="inputPassword2" class="form-label">Repite contraseña</label>
+                <label for="inputPassword2" class="form-label">Repetir contraseña</label>
                 <input type="password" class="form-control largo" id="inputPassword2">
             </div>
             
@@ -56,16 +59,22 @@
     <!-- Crea la vista Usuarios la cual debe mostrar en cards de Bootstrap los usuarios guardados en localStorage con los siguientes campos:
     Nombre
     Correo -->
-   
-    <div class="card margenes" style="width: 18rem;">
-        <div class="card-header">
-            Usuario:
+
+    <!--aqui iran las cards-->
+
+    <div id="cards">
+
+        <div class="card margenes largo">
+            <div class="card-header">
+                Usuario
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+            </ul>
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-        </ul>
-  </div>
+
+    </div>
 
     
 </body>
