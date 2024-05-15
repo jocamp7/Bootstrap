@@ -86,28 +86,31 @@ function sendInfo (event) {
 
             array.push(JSON.parse( localStorage.getItem('usuario'+i) ) )
 
+            
+            const users = JSON.parse(localStorage.getItem('usuario'+i));
+
+            const cardCaja = document.getElementById('card');
+            
+            //solo salen los que creas esa sesion pero algo es algo
+
+                    const card = document.createElement('div');
+                    card.className = 'card margenes largo';
+                    cardCaja.appendChild(card);
+
+                    card.innerHTML = ` <ul class="list-group list-group-flush">
+                    <li class="list-group-item">${users.name}</li>
+                    <li class="list-group-item">${users.email}</li>
+                    </ul> `;
+
+                    cardCaja.appendChild(card);
+                
             clearTextFields();
 
-            const data = JSON.parse(localStorage.getItem('usuario'+i))
-
-            //falta que aparezcan el nombre y el email de todos los usuarios en localstorage en la card 
-
             i++;
-
         }
 }
 
-/* 
-Crea la vista Usuarios la cual debe mostrar en cards de Bootstrap los usuarios guardados en localStorage con los siguientes campos:
-Nombre y Correo
-*/
 
-/*
-    <div class="card margenes largo">
-         <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-         </ul>
-    </div> 
- */
+
+
     
